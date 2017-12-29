@@ -34,7 +34,7 @@ class NeuralNetwork(object):
         for X, y in zip(features, targets):
             
             final_outputs, hidden_outputs = self.forward_pass_train(X)  # Implement the forward pass function below
-            # Implement the backproagation function below
+            # Implement the backpropagation function below
             delta_weights_i_h, delta_weights_h_o = self.backpropagation(final_outputs, hidden_outputs, X, y, 
                                                                         delta_weights_i_h, delta_weights_h_o)
         self.update_weights(delta_weights_i_h, delta_weights_h_o, n_records)
@@ -52,7 +52,6 @@ class NeuralNetwork(object):
         hidden_inputs = X            # signals into hidden layer
         hidden_outputs = np.matmul(self.weights_input_to_hidden, hidden_inputs) # signals from hidden layer
 
-        # TODO: Output layer - Replace these values with your calculations.
         final_inputs = hidden_outputs             # signals into final output layer
         final_outputs = np.matmul(self.weights_hidden_to_output, hidden_outputs) # signals from final output layer
 
@@ -122,9 +121,9 @@ class NeuralNetwork(object):
         return final_outputs
 
 
-#########################################################
-# Set your hyperparameters here
-##########################################################
+################################################
+# hyperparameters                              #
+################################################
 iterations = 1000
 learning_rate = 0.01
 hidden_nodes = 6
