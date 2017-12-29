@@ -9,27 +9,14 @@ class NeuralNetwork(object):
         self.output_nodes = output_nodes
 
         # Initialize weights
-        self.weights_input_to_hidden = np.random.normal(0.0, self.input_nodes**-0.5, 
+        self.weights_input_to_hidden = np.random.normal(0.0, self.input_nodes**-0.5,
                                        (self.input_nodes, self.hidden_nodes))
 
         self.weights_hidden_to_output = np.random.normal(0.0, self.hidden_nodes**-0.5, 
                                        (self.hidden_nodes, self.output_nodes))
         self.lr = learning_rate
         
-        #### TODO: Set self.activation_function to your implemented sigmoid function ####
-        #
-        # Note: in Python, you can define a function with a lambda expression,
-        # as shown below.
-        self.activation_function = lambda x : 0  # Replace 0 with your sigmoid calculation.
-        
-        ### If the lambda code above is not something you're familiar with,
-        # You can uncomment out the following three lines and put your 
-        # implementation there instead.
-        #
-        #def sigmoid(x):
-        #    return 0  # Replace 0 with your sigmoid calculation here
-        #self.activation_function = sigmoid
-                    
+        self.activation_function = lambda x : 1 / (1 + np.exp(-x))
 
     def train(self, features, targets):
         ''' Train the network on batch of features and targets. 
