@@ -41,23 +41,21 @@ class NeuralNetwork(object):
 
 
     def forward_pass_train(self, X):
-        ''' Implement forward pass here 
-         
+        ''' Implement forward pass here
+
             Arguments
             ---------
             X: features batch
 
         '''
-        #### Implement the forward pass here ####
         ### Forward pass ###
-        # TODO: Hidden layer - Replace these values with your calculations.
-        hidden_inputs = None # signals into hidden layer
-        hidden_outputs = None # signals from hidden layer
+        hidden_inputs = X            # signals into hidden layer
+        hidden_outputs = np.matmul(self.weights_input_to_hidden, hidden_inputs) # signals from hidden layer
 
         # TODO: Output layer - Replace these values with your calculations.
-        final_inputs = None # signals into final output layer
-        final_outputs = None # signals from final output layer
-        
+        final_inputs = hidden_outputs             # signals into final output layer
+        final_outputs = np.matmul(self.weights_hidden_to_output, hidden_outputs) # signals from final output layer
+
         return final_outputs, hidden_outputs
 
     def backpropagation(self, final_outputs, hidden_outputs, X, y, delta_weights_i_h, delta_weights_h_o):
