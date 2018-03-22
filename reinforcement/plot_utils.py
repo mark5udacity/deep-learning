@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from mpl_toolkits.mplot3d import axes3d, Axes3D
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
@@ -24,10 +25,10 @@ def plot_blackjack_values(V):
         ax.view_init(ax.elev, -120)
 
     fig = plt.figure(figsize=(20, 20))
-    ax = fig.add_subplot(211, projection='3d')
+    ax =  Axes3D(fig) #fig.add_subplot(211, projection='3d')
     ax.set_title('Usable Ace')
     get_figure(True, ax)
-    ax = fig.add_subplot(212, projection='3d')
+    ax =  Axes3D(fig) #fig.add_subplot(212, projection='3d')
     ax.set_title('No Usable Ace')
     get_figure(False, ax)
     plt.show()
